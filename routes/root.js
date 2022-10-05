@@ -8,6 +8,5 @@ router.get('^/$|/index(.html)?', (req, res) => {
 })
 
 router.post('/createUser', UserController.createUser)
-router.post('/getUser', UserController.getUser)
 
 module.exports = router

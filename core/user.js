@@ -14,12 +14,6 @@ const createUserCore = async (req) => {
     return result
 }
 
-const getUser = async (req) => {
-    const { email, password } = req
-    const query = { email: email }
-    const user = await db.collection('User').findOne(query)
-    const checkpwd = await bcrypt.compare(password, user.password)
-    return checkpwd
-}
 
-module.exports = { createUserCore, getUser }
+
+module.exports = { createUserCore }

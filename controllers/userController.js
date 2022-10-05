@@ -12,16 +12,4 @@ const createUser = async (req, res) => {
     }
 }
 
-const getUser = async (req, res) => {
-    if (req.body === undefined) {
-        return undefined
-    }
-    const userDetail = await UserCore.getUser(req.body)
-    if (!userDetail) {
-        res.status(404).send({ success: false, error: { message: 'Wrong Credentials' } })
-    } else {
-        res.status(200).send({ success: true, info: { message: 'Successfully Logged In !' } })
-    }
-}
-
-module.exports = { createUser, getUser }
+module.exports = { createUser }
