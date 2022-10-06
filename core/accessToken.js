@@ -6,7 +6,7 @@ const authentication = (user, res) => {
         'email': user.email
     },
         process.env.ACCESS_TOKEN_SECRET_KEY,
-        { expiresIn: '1m' })
+        { expiresIn: '2d' })
 
     const refreshToken = jwt.sign({
         'email': user.email
@@ -40,7 +40,7 @@ const refresh = (cookie, db) => {
         'email': user.email
     },
         process.env.ACCESS_TOKEN_SECRET_KEY,
-        { expiresIn: '10s' })
+        { expiresIn: '1m' })
 
     res.json({ accessToken })
 }

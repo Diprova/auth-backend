@@ -9,7 +9,7 @@ const login = async (req, res) => {
         res.status(400).json({ message: 'All fields are required' })
     }
     const userDetail = await Auth.login(req.body, res)
-    if (!userDetail) {
+    if (!userDetail.token) {
         res.status(404).send({ success: false, error: { message: 'Unauthorized!' } })
     } else {
         res.status(200).send({ data: userDetail })

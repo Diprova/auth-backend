@@ -8,7 +8,7 @@ const login = async (req, res) => {
     const query = { email: email }
     const user = await db.collection('User').findOne(query)
     const checkpwd = await bcrypt.compare(password, user.password)
-    const authentication = checkpwd ? accessToken.authentication(user, res) : checkpwd
+    const authentication = checkpwd ? { token: accessToken.authentication(user, res), userId: user._id } : checkpwd
     return authentication
 }
 
