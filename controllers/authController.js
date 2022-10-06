@@ -12,8 +12,7 @@ const login = async (req, res) => {
     if (!userDetail) {
         res.status(404).send({ success: false, error: { message: 'Unauthorized!' } })
     } else {
-        res.json(userDetail)
-        res.status(200).send({ success: true, info: { message: 'Successfully Logged In !' } })
+        res.status(200).send({ data: userDetail })
     }
 }
 
